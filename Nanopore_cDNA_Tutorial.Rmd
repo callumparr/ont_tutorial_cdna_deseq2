@@ -386,6 +386,7 @@ ylab <- paste("Prin.Comp. ",y," (",ypercent,"%)",sep="")
 
 plot <- ggplot(xdata, aes(x=PC1, y=PC2, colour=group)) + 
   geom_point(size=5, shape=18) + 
+  geom_text(label=rownames(xdata), nudge_x = 1000, nudge_y = 1000) + # added labels to points so if what point seems strange then can track erroneous replicate
   scale_colour_brewer(palette="Paired") + 
   geom_vline(xintercept=0, color="darkgray") + 
   geom_hline(yintercept=0, color="darkgray") + 
