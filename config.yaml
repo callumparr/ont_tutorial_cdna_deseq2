@@ -7,24 +7,50 @@
 
 pipeline: "Nanopore cDNA gene expression profiling"
 
-reference_genome: "ftp://ftp.ensembl.org/pub/release-94/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz"
+reference_genome: "ReferenceData/Mus_musculus.GRCm38.dna.primary_assembly.fa"
 
-genome_annotation: "ftp://ftp.ensembl.org/pub/release-94/gtf/homo_sapiens/Homo_sapiens.GRCh38.94.gtf.gz"
+genome_annotation: "ReferenceData/Mus_musculus.GRCm38.99.gtf"
 
 Samples:
-    - "Condition 1":   # this is a group 
-        A1: "RawData/condition1_rep1.fastq.gz"    # filename pairs must be maintained - identifier and filename
-        A2: "RawData/condition1_rep2.fastq.gz"
-        A3: "RawData/condition1_rep3.fastq.gz"
+    - "Young":   # this is a group 
+        Y1: "RawData/Day1_08_DRS_pass.fastq.gz"    # filename pairs must be maintained - identifier and filename
+        Y2: "RawData/Day2_03_DRS_pass.fastq.gz"
+        Y3: "RawData/Day2_11_DRS_pass.fastq.gz"
+        Y4: "RawData/Day3_06_DRS_pass.fastq.gz"
+        Y5: "RawData/Day5_07_DRS_pass.fastq.gz"
+        Y6: "RawData/Day6_05_DRS_pass.fastq.gz"
+        Y7: "RawData/Day6_07_DRS_pass.fastq.gz"
+        Y8: "RawData/Day1_12_DRS_pass.fastq.gz"
+        Y9: "RawData/Day3_03_DRS_pass.fastq.gz"
+        Y10: "RawData/Day4_06_DRS_pass.fastq.gz"
+        Y11: "RawData/Day4_09_DRS_pass.fastq.gz"
+        Y12: "RawData/Day6_12_DRS_pass.fastq.gz"
+        Y13: "RawData/Day5_04_DRS_pass.fastq.gz"
+        Y14: "RawData/Day5_08b_DRS_pass.fastq.gz"
+        Y15: "RawData/Day6_09_DRS_pass.fastq.gz"
 
-    - "Condition 2":  # this is another group - names are arbitrary but must be unique
-        B1: "RawData/condition2_rep1.fastq.gz"
-        B2: "RawData/condition2_rep2.fastq.gz"
-        B3: "RawData/condition2_rep3.fastq.gz"
+    - "Old":  # this is another group - names are arbitrary but must be unique
+        O1: "RawData/Day1_01_DRS_pass.fastq.gz"
+        O2: "RawData/Day1_04_DRS_pass.fastq.gz"
+        O3: "RawData/Day2_04_DRS_pass.fastq.gz"
+        O4: "RawData/Day2_09_DRS_pass.fastq.gz"
+        O5: "RawData/Day3_07_DRS_pass.fastq.gz"
+        O6: "RawData/Day3_09_DRS_pass.fastq.gz"
+        O7: "RawData/Day3_12_DRS_pass.fastq.gz"
+        O8: "RawData/Day6_02_DRS_pass.fastq.gz"
+        O9: "RawData/Day7_01_DRS_pass.fastq.gz"
+        O10: "RawData/Day7_02_DRS_pass.fastq.gz"
+        O11: "RawData/Day2_07_DRS_pass.fastq.gz"
+        O12: "RawData/Day4_12_DRS_pass.fastq.gz"
+        O13: "RawData/Day5_03_DRS_pass.fastq.gz"
+        O14: "RawData/Day6_03_DRS_pass.fastq.gz"
+        O15: "RawData/Day5_09_DRS_pass.fastq.gz"
+        O16: "RawData/Day1_03_DRS_pass.fastq.gz"
+        O17: "RawData/Day1_06_DRS_pass.fastq.gz"
         
-referenceGroup: "Condition 1"   # this name *must* match one of the group names       
+referenceGroup: "Young"   # this name *must* match one of the group names       
 
-readCountMinThreshold: 10   # what is the minimum number of transcripts for a gene feature to be considered
+readCountMinThreshold: 5   # what is the minimum number of transcripts for a gene feature to be considered
 lfcThreshold : 1            # minimum required log2 fold change for differential expression analysis
 adjPValueThreshold: 0.05    # adjusted p-value threshold for differential expression analysis
 
