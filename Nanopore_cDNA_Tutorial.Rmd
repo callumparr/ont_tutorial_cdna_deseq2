@@ -52,15 +52,10 @@ tutorialText   <- config$tutorialText
 persistenceData <- file.path(resultDir, "NanoporeDESeq2.Rdata")
 
 #### below are a couple of methods; these are for tutorials and classroom activities and are not used in this document
-
+ 
 plotExpressionForGene <- function(geneId) {
   goiexpr <- plotCounts(deSeqObj, gene=geneId, intgroup="group", returnData = TRUE)
-  plot <- ggplot(goiexpr, aes(x=group, y=count, colour=group)) + 
-    geom_point(position=position_jitter(w=0.1,h=0), size=2) + 
-    scale_y_log10() + ggtitle(paste("Distribution of normalised read counts for",geneId)) + 
-    xlab("Experimental Condition") +ylab("normalised read count - log10 scale") + 
-    scale_colour_brewer(palette="Paired")
-  rprint(plot)
+  plot <- ggplot(goiexpr, aes(x=group, y=count, colour=group))   
 }
 
 ####### end of the classroom methods #######################################
