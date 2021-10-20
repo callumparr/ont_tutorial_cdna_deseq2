@@ -77,8 +77,8 @@ rule minimap:
   output:
     bam="Analysis/Minimap/{seqid}.bam"
   threads: 40
-  shell:
-    "minimap2 -t {threads} -ax splice -k14 --secondary=no {input.index} {input.fastq} | samtools view -Sb | samtools sort - -o {output.bam}"
+  shell: # add '-uf' to minimap2 command to match direct RNA library spec. forces to map one direction only
+    "minimap2 -t {threads} -ax splice -k14 -uf --secondary=no {input.index} {input.fastq} | samtools view -Sb | samtools sort - -o {output.bam}"
 
 
 rule flagstat:
